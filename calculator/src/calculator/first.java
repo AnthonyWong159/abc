@@ -3,6 +3,20 @@ package calculator;
 import java.util.Scanner;
 
 public class first {
+	
+	static void add(float x, float y) {		
+		System.out.println(x + " + " + y + " = " + (x+y));		
+	}
+	static void minus(float x, float y) {
+		System.out.println(x + " - " + y + " = " + (x-y));
+	}
+	static void multiply(float x, float y) {
+		System.out.println(x + " * " + y + " = " + (x*y));
+	}
+	static void divide(float x, float y) {
+		System.out.println(x + " / " + y + " = " + (x/y));
+	}
+	
 	public static void main(String[] args) {
 		Scanner calculatorObj = new Scanner(System.in);
 		Scanner num1Obj = new Scanner(System.in);
@@ -14,9 +28,10 @@ public class first {
 		float num2 = 0;
 		boolean checkoperator = true;
 
-		while (calculator == "Y") {
+		while (calculator.equals("Y")) {
 			System.out.println("Calculator? (Y/N)");
 			calculator = calculatorObj.nextLine();
+			
 			if (calculator.equals("Y")) {
 				while (true) {
 					try {
@@ -43,14 +58,19 @@ public class first {
 					System.out.println("Which operator? (+ - * /)");
 					char operator = operatorObj.next().charAt(0);
 					if (operator == '+') {
-						System.out.println(num1 + " + " + num2 + " = " + (num1 + num2));
+						add(num1, num2);
+						break;
 					} else if (operator == '-') {
-						System.out.println(num1 + " - " + num2 + " = " + (num1 - num2));
+						minus(num1, num2);
+						break;
 					} else if (operator == '*') {
-						System.out.println(num1 + " * " + num2 + " = " + (num1 * num2));
+						multiply(num1, num2);
+						break;
 					} else if (operator == '/') {
-						System.out.println(num1 + " / " + num2 + " = " + (num1 / num2));
+						divide(num1, num2);
+						break;
 					} else {
+						System.out.println("Please try again!");
 						checkoperator = false;
 					}
 				}
