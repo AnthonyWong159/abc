@@ -22,13 +22,11 @@ public class first {
 		while (calculator.equals("Y")) {
 			System.out.println("Calculator? (Y/N)");
 			calculator = calculatorObj.nextLine();
-
 			if (calculator.equals("Y")) {
 				for (int i = 0; i < n + 1; i++) {
 					if (i % 2 == 0) {
 						System.out.println("Please input numbers.");
 						num_string = numObj.nextLine();
-
 						if (c.check(num_string, i) == true) {
 							if (i == 0) {
 								num[0] = Float.parseFloat(num_string);
@@ -39,7 +37,6 @@ public class first {
 							i--;
 						}
 					}
-
 					else if (i % 2 > 0) {
 						System.out.println("Please input operator.");
 						operator = operatorObj.nextLine();
@@ -63,7 +60,6 @@ public class first {
 							result = c.divide(num[0], num[(i % 2) + 1]);
 							System.out.println(num[0] + " / " + num[(i % 2) + 1] + " = " + result);
 						}
-
 						while (Continue.equals("Y")) {
 							System.out.println("continue?");
 							Continue = ContinueObj.nextLine();
@@ -79,7 +75,6 @@ public class first {
 						}
 					}
 				}
-
 			} else if (calculator.equals("N")) {
 				System.out.println("Thanks you!");
 				System.exit(0);
@@ -87,7 +82,5 @@ public class first {
 				calculator = "Y";
 			}
 		}
-
 	}
-
 }
