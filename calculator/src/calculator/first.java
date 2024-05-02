@@ -12,12 +12,11 @@ public class first {
 		calculate c = new calculate();
 
 		String calculator = "Y";
-		String Continue = "Y";
 		String num_string;
 		String operator = "";
 		float result = 0;
 		int n = 2;
-		float[] num = new float[n + 1];
+		float[] num = new float[2];
 
 		while (calculator.equals("Y")) {
 			System.out.println("Calculator? (Y/N)");
@@ -36,8 +35,7 @@ public class first {
 						} else {
 							i--;
 						}
-					}
-					else if (i % 2 > 0) {
+					} else if (i % 2 > 0) {
 						System.out.println("Please input operator.");
 						operator = operatorObj.nextLine();
 						if (c.check(operator, i) == true) {
@@ -60,6 +58,7 @@ public class first {
 							result = c.divide(num[0], num[(i % 2) + 1]);
 							System.out.println(num[0] + " / " + num[(i % 2) + 1] + " = " + result);
 						}
+						String Continue = "Y";
 						while (Continue.equals("Y")) {
 							System.out.println("continue?");
 							Continue = ContinueObj.nextLine();
@@ -68,6 +67,8 @@ public class first {
 								n = n + 2;
 								break;
 							} else if (Continue.equals("N")) {
+								num[0] = num[i % 2 + 1] = 0;
+								n = 2;
 								break;
 							} else {
 								Continue = "Y";
