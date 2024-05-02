@@ -4,24 +4,12 @@ import java.util.Scanner;
 
 public class first {
 	
-	static void add(float x, float y) {		
-		System.out.println(x + " + " + y + " = " + (x+y));		
-	}
-	static void minus(float x, float y) {
-		System.out.println(x + " - " + y + " = " + (x-y));
-	}
-	static void multiply(float x, float y) {
-		System.out.println(x + " * " + y + " = " + (x*y));
-	}
-	static void divide(float x, float y) {
-		System.out.println(x + " / " + y + " = " + (x/y));
-	}
-	
 	public static void main(String[] args) {
 		Scanner calculatorObj = new Scanner(System.in);
 		Scanner num1Obj = new Scanner(System.in);
 		Scanner num2Obj = new Scanner(System.in);
 		Scanner operatorObj = new Scanner(System.in);
+		calculate c = new calculate(); 
 
 		String calculator = "Y";
 		float num1 = 0;
@@ -58,16 +46,16 @@ public class first {
 					System.out.println("Which operator? (+ - * /)");
 					char operator = operatorObj.next().charAt(0);
 					if (operator == '+') {
-						add(num1, num2);
+						c.add(num1, num2);
 						break;
 					} else if (operator == '-') {
-						minus(num1, num2);
+						c.minus(num1, num2);
 						break;
 					} else if (operator == '*') {
-						multiply(num1, num2);
+						c.multiply(num1, num2);
 						break;
 					} else if (operator == '/') {
-						divide(num1, num2);
+						c.divide(num1, num2);
 						break;
 					} else {
 						System.out.println("Please try again!");
