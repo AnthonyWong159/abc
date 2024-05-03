@@ -32,6 +32,5 @@ public class calculate {
 			} else
 				return false;
 		}
-
 	}
 }

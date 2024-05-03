@@ -11,26 +11,24 @@ public class first {
 		Scanner ContinueObj = new Scanner(System.in);
 		calculate c = new calculate();
 
-		String calculator = "Y";
-		String num_string;
 		String operator = "";
 		float result = 0;
 		int n = 2;
 		float[] num = new float[2];
 
-		while (calculator.equals("Y")) {
+		while (true) {
 			System.out.println("Calculator? (Y/N)");
-			calculator = calculatorObj.nextLine();
+			String calculator = calculatorObj.nextLine();
 			if (calculator.equals("Y")) {
 				for (int i = 0; i < n + 1; i++) {
 					if (i % 2 == 0) {
 						System.out.println("Please input numbers.");
-						num_string = numObj.nextLine();
+						String num_string = numObj.nextLine();
 						if (c.check(num_string, i) == true) {
 							if (i == 0) {
 								num[0] = Float.parseFloat(num_string);
 							} else {
-								num[(i % 2) + 1] = Float.parseFloat(num_string);
+								num[1] = Float.parseFloat(num_string);
 							}
 						} else {
 							i--;
@@ -46,32 +44,31 @@ public class first {
 					}
 					if (i == n) {
 						if (operator.equals("+")) {
-							result = c.add(num[0], num[(i % 2) + 1]);
-							System.out.println(num[0] + " + " + num[(i % 2) + 1] + " = " + result);
+							result = c.add(num[0], num[1]);
+							System.out.println(num[0] + operator + num[1] + " = " + result);
 						} else if (operator.equals("-")) {
-							result = c.minus(num[0], num[(i % 2) + 1]);
-							System.out.println(num[0] + " - " + num[(i % 2) + 1] + " = " + result);
+							result = c.minus(num[0], num[1]);
+							System.out.println(num[0] + operator + num[1] + " = " + result);
 						} else if (operator.equals("*")) {
-							result = c.multiply(num[0], num[(i % 2) + 1]);
-							System.out.println(num[0] + " * " + num[(i % 2) + 1] + " = " + result);
+							result = c.multiply(num[0], num[1]);
+							System.out.println(num[0] + operator + num[1] + " = " + result);
 						} else if (operator.equals("/")) {
-							result = c.divide(num[0], num[(i % 2) + 1]);
-							System.out.println(num[0] + " / " + num[(i % 2) + 1] + " = " + result);
+							result = c.divide(num[0], num[1]);
+							System.out.println(num[0] + operator + num[1] + " = " + result);
 						}
-						String Continue = "Y";
-						while (Continue.equals("Y")) {
+						while (true) {
 							System.out.println("continue?");
-							Continue = ContinueObj.nextLine();
+							String Continue = ContinueObj.nextLine();
 							if (Continue.equals("Y")) {
 								num[0] = result;
 								n = n + 2;
 								break;
 							} else if (Continue.equals("N")) {
-								num[0] = num[i % 2 + 1] = 0;
+								num[0] = num[1] = 0;
 								n = 2;
 								break;
-							} else {
-								Continue = "Y";
+							}else {
+								System.out.println("error");
 							}
 						}
 					}
@@ -80,7 +77,7 @@ public class first {
 				System.out.println("Thanks you!");
 				System.exit(0);
 			} else {
-				calculator = "Y";
+				System.out.println("error");
 			}
 		}
 	}
