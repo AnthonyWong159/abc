@@ -45,17 +45,15 @@ public class first {
 					if (i == n) {
 						if (operator.equals("+")) {
 							result = c.add(num[0], num[1]);
-							System.out.println(num[0] + operator + num[1] + " = " + result);
 						} else if (operator.equals("-")) {
 							result = c.minus(num[0], num[1]);
-							System.out.println(num[0] + operator + num[1] + " = " + result);
 						} else if (operator.equals("*")) {
 							result = c.multiply(num[0], num[1]);
-							System.out.println(num[0] + operator + num[1] + " = " + result);
 						} else if (operator.equals("/")) {
 							result = c.divide(num[0], num[1]);
-							System.out.println(num[0] + operator + num[1] + " = " + result);
 						}
+						System.out.println(num[0] + operator + num[1] + " = " + result);
+						
 						while (true) {
 							System.out.println("continue?");
 							String Continue = ContinueObj.nextLine();
